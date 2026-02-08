@@ -2,10 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=node
 
 
-## discord.js
-config.json
-
-
 ### Node ###
 # Logs
 logs
