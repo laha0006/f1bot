@@ -12,6 +12,16 @@ async function getScheduleCurrentYear() {
     return (jsonMeetings, jsonSessions);
 }
 
+function createScheduleObject(meetings, sessions) {
+    const sched = {};
+    meetings.forEach((meet) => (sched[meet.key] = meet));
+    sessions.forEach((sess) => {
+        const meet = sched[sess.meetKey];
+        if (!meet) return;
+        meet.session = sess;
+    });
+}
+
 console.log(MEETINGS_ENDPOINT);
 console.log(SESSIONS_ENDPOINT);
 console.log(await getScheduleCurrentYear());
