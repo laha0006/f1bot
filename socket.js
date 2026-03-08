@@ -28,7 +28,14 @@ client.on("connect", function () {
             console.error("Subscription error for v1/laps:", err);
         }
     });
-    // client.subscribe('#'); // Subscribe to all topics
+    client.subscribe("v1/racecontrol", function (err) {
+        if (!err) {
+            console.log("Subscribed to v1/racecontrol");
+        } else {
+            console.error("Subscription error for v1/racecontrol:", err);
+        }
+    });
+    client.subscribe("#"); // Subscribe to all topics
 });
 
 client.on("message", function (topic, message) {
